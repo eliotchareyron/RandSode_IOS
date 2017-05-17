@@ -100,6 +100,7 @@ UINavigationControllerDelegate {
                     
                     urlstring +=  "/episode/" + epnumber.stringValue + "?api_key=6eea0576c85e5ebf9fd8e438a8d8b316&language=fr-FR"
                    
+                    print(urlstring)
                     let url2 = URL(string: urlstring)
                     URLSession.shared.dataTask(with:url2!) { (data, response, error) in
                         if error != nil {
