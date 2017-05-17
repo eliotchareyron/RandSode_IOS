@@ -32,6 +32,7 @@ class SerieViewController: UIViewController,UINavigationControllerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         if let serie = serie {
+            
             TitreLabel.text = serie.titre
             descriptionTextView.text   = serie.description
             

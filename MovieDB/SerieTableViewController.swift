@@ -208,9 +208,9 @@ class SerieTableViewController: UITableViewController {
         print(serie)
         
         
-        var urlstring  = "https://api.themoviedb.org/3/search/tv?api_key=6eea0576c85e5ebf9fd8e438a8d8b316&language=fr-FR&query=" + Name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + "&page=1"
+        let urlstring  = "https://api.themoviedb.org/3/search/tv?api_key=6eea0576c85e5ebf9fd8e438a8d8b316&language=fr-FR&query=" + Name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + "&page=1"
         
-            
+        
         print(urlstring)
         
         let url = URL(string: urlstring)
