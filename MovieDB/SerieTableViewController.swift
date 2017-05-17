@@ -11,11 +11,16 @@ import SDWebImage
 
 class SerieTableViewController: UITableViewController {
     var serie = [Serie]()
+     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         discover()
         
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.delegate = self
 
     }
     
@@ -134,6 +139,7 @@ class SerieTableViewController: UITableViewController {
     //MARK: Private Methods
     public func discover() {
         
+        self.serie.removeAll()
         let urlString = "https://api.themoviedb.org/3/discover/tv?api_key=6eea0576c85e5ebf9fd8e438a8d8b316&language=fr-FR&sort_by=popularity.desc&page=1&timezone=America/New_York&include_null_first_air_dates=false"
         let url = URL(string: urlString)
         URLSession.shared.dataTask(with:url!) { (data, response, error) in
@@ -196,7 +202,96 @@ class SerieTableViewController: UITableViewController {
         
         }
     
+    public func Search(Name : String) {
+        print(serie)
+        self.serie.removeAll()
+        print(serie)
+        
+        
+        var urlstring  = "https://api.themoviedb.org/3/search/tv?api_key=6eea0576c85e5ebf9fd8e438a8d8b316&language=fr-FR&query=" + Name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + "&page=1"
+        
+            
+        print(urlstring)
+        
+        let url = URL(string: urlstring)
+        
+        URLSession.shared.dataTask(with:url!) { (data, response, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                do {
+                    
+                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
+                    let results: NSArray = (parsedData["results"] as? NSArray)!
+                    var  name : String = ""
+                    var  description : String = ""
+                    var  date : String = ""
+                    var id : NSNumber = 0
+                    var vote : NSNumber = 0
+                    var image : String
+                    var poster : String
+                    let image_path : String = "https://image.tmdb.org/t/p/w500"
+                    
+                    
+                    // Cast "dict" en NSDICTIONNARY
+                    for dict in results as! [NSDictionary]{
+                        
+                        name = dict.value(forKey: "name")! as! String
+                        description = dict.value(forKey: "overview")! as! String
+                        date = dict.value(forKey: "first_air_date")! as! String
+                        id = dict.value(forKey: "id")! as! NSNumber
+                        vote = dict.value(forKey: "vote_average")! as! NSNumber
+                        if 	dict.value(forKey: "backdrop_path") as? String == nil  {
+                            
+                            image = ""
+                            
+                            
+                        } else {
+                            image = image_path + (dict.value(forKey: "backdrop_path") as! String)
+                        }
+                        
+                        if 	dict.value(forKey: "backdrop_path") as? String == nil  {
+                            
+                            poster = ""
+                            
+                            
+                        } else {
+                            poster = image_path + (dict.value(forKey: "backdrop_path") as! String)
+                        }
+                        
+                        
+                        
+                        let serie1 = Serie(id: id, titre: name, years: date , image: image , description: description, vote: vote, poster: poster)
+                        self.serie += [serie1]
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                            
+                        }
+                        
+                        
+                    }
+                    
+                
+                    
+                    //print(name)
+                    
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+            
+            }.resume()
+        
+        
+    }
     
     
+}
+extension SerieTableViewController : UISearchBarDelegate {
+    @available(iOS 8.0, *)
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        Search(Name: searchController.searchBar.text!)
+    }
 }
 
