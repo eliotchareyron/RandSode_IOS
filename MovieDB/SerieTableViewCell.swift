@@ -20,6 +20,9 @@ class SerieTableViewCell: UITableViewCell {
     
     var favoris = [Favoris_serie]()
     
+    
+    
+    
     @IBOutlet weak var titrelabel: UILabel!
     @IBOutlet weak var yearslabel: UILabel!
     @IBOutlet weak var imageview: UIImageView!
@@ -70,6 +73,10 @@ class SerieTableViewCell: UITableViewCell {
         let serie_fav = Favoris_serie(id: idserie, titre: titre, years: years, image: image, description: description, vote: vote, poster: poster)
         self.favoris += [serie_fav]
         
+        //UserDefaults.standard.set(self.favoris, forKey: "Favories")
+        
     }
+    
+   
     
 }

@@ -11,10 +11,15 @@ import SDWebImage
 
 class SerieTableViewController: UITableViewController {
     
-    public var serie = [Serie]()
-   
     
-     let searchController = UISearchController(searchResultsController: nil)
+    public var serie = [Serie]()
+    public var Favoris = UserDefaults.standard.array(forKey: "Favories")
+    
+    @IBAction func Fav(_ sender: Any) {
+        print(Favoris?.count)
+    }
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,29 +29,29 @@ class SerieTableViewController: UITableViewController {
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchBar.delegate = self
-
+        
     }
     
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return serie.count
     }
-
-   
+    
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "SerieTableViewCell"
@@ -57,7 +62,7 @@ class SerieTableViewController: UITableViewController {
         }
         
         let Serie = serie[indexPath.row]
-
+        
         cell.titrelabel.text = Serie.titre
         cell.yearslabel.text = Serie.years
         cell.votelabel.text = Serie.vote.stringValue
@@ -66,49 +71,48 @@ class SerieTableViewController: UITableViewController {
         cell.description_serie = Serie.description
         cell.image_serie = Serie.image
         cell.poster = Serie.poster
-        
         return cell
     }
- 
-
+    
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -128,17 +132,17 @@ class SerieTableViewController: UITableViewController {
             }
             
             let serie_liste: Serie
-           
-                serie_liste = serie[indexPath.row]
-                serieDetailViewController.serie = serie_liste
-
+            
+            serie_liste = serie[indexPath.row]
+            serieDetailViewController.serie = serie_liste
+            
             
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
     }
     
-
+    
     
     
     
@@ -157,7 +161,7 @@ class SerieTableViewController: UITableViewController {
                     
                     let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
                     let results: NSArray = (parsedData["results"] as? NSArray)!
-                  
+                    
                     var  name : String = ""
                     var  description : String = ""
                     var  date : String = ""
@@ -181,13 +185,13 @@ class SerieTableViewController: UITableViewController {
                             
                             
                         } else {
-                             image = image_path + (dict.value(forKey: "backdrop_path") as! String)
+                            image = image_path + (dict.value(forKey: "backdrop_path") as! String)
                         }
                         
                         
-                       
+                        
                         poster = image_path + (dict.value(forKey: "backdrop_path") as! String)
-
+                        
                         let serie1 = Serie(id: id, titre: name, years: date , image: image , description: description, vote: vote, poster: poster)
                         self.serie += [serie1]
                         
@@ -207,7 +211,7 @@ class SerieTableViewController: UITableViewController {
             }.resume()
         
         
-        }
+    }
     
     public func Search(Name : String) {
         print(serie)
@@ -217,7 +221,7 @@ class SerieTableViewController: UITableViewController {
         
         let urlstring  = "https://api.themoviedb.org/3/search/tv?api_key=6eea0576c85e5ebf9fd8e438a8d8b316&language=fr-FR&query=" + Name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + "&page=1"
         
-            
+        
         print(urlstring)
         
         let url = URL(string: urlstring)
@@ -279,7 +283,7 @@ class SerieTableViewController: UITableViewController {
                         
                     }
                     
-                
+                    
                     
                     //print(name)
                     
@@ -293,6 +297,11 @@ class SerieTableViewController: UITableViewController {
         
     }
     
+    public func getObject(key:String) -> AnyObject
+    {
+        let pref = UserDefaults.standard
+        return pref.object(forKey: key)! as AnyObject
+    }
     
 }
 extension SerieTableViewController : UISearchBarDelegate {

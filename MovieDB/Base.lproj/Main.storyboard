@@ -115,7 +115,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xWO-SS-ZEt" id="7Rg-rd-mqG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaut" translatesAutoresizingMaskIntoConstraints="NO" id="tqg-aq-SsX">
@@ -191,7 +191,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="RandSode" id="CXb-bO-QAn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="pLe-2H-OgE"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="pLe-2H-OgE">
+                            <connections>
+                                <action selector="Fav:" destination="Yfl-YV-eju" id="OQr-EU-8Pq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raS-Pg-e7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
