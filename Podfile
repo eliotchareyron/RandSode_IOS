@@ -7,17 +7,20 @@ target 'MovieDB' do
 
   # Pods for MovieDB
 pod 'SDWebImage/WebP'
+pod 'Toast-Swift', '~> 2.0.0'
 
   target 'MovieDBTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'SDWebImage/WebP'
+    pod 'Toast-Swift', '~> 2.0.0'
   end
 
   target 'MovieDBUITests' do
     inherit! :search_paths
     # Pods for testing
     pod 'SDWebImage/WebP'
+    pod 'Toast-Swift', '~> 2.0.0'
   end
 
 end

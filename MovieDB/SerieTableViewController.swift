@@ -10,7 +10,11 @@ import UIKit
 import SDWebImage
 
 class SerieTableViewController: UITableViewController {
+    
     var serie = [Serie]()
+   
+    
+    
      let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -59,7 +63,7 @@ class SerieTableViewController: UITableViewController {
         cell.yearslabel.text = Serie.years
         cell.votelabel.text = Serie.vote.stringValue
         cell.imageview.sd_setImage(with: URL(string: Serie.image), placeholderImage: UIImage(named: "default.png"))
-
+        cell.serie_id = Int(Serie.id)
         return cell
     }
  

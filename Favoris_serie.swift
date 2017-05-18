@@ -1,16 +1,15 @@
 //
-//  Serie.swift
-//  MovieDB
+//  Favoris_serie.swift
 //
-//  Created by etudiant on 08/02/2017.
-//  Copyright © 2017 etudiant. All rights reserved.
+//
+//  Created by etudiant on 18/05/2017.
+//
 //
 
-import UIKit
+import Foundation
+//MARK: Properties
 
-class Serie {
-    //MARK: Properties 
-
+class Favoris_serie {
     var id: NSNumber = 0
     var titre: String = ""
     var years: String = ""
@@ -32,8 +31,6 @@ class Serie {
         self.vote = vote
         
     }
-    
-    
     
     
 }

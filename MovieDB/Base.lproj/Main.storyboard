@@ -28,8 +28,8 @@
                                     <constraint firstAttribute="height" constant="117" id="rkl-Ep-EnW"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="HV2-xL-sRb">
-                                <rect key="frame" x="12" y="245" width="351" height="217"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="HV2-xL-sRb">
+                                <rect key="frame" x="12" y="245" width="351" height="196"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -41,8 +41,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qu7-UP-oYt">
-                                <rect key="frame" x="93" y="482" width="149" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qu7-UP-oYt">
+                                <rect key="frame" x="89" y="449" width="149" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="149" id="Ltg-b8-pH1"/>
                                 </constraints>
@@ -51,19 +51,19 @@
                                     <action selector="Random:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTP-Wu-I00"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oft-1e-5eH">
-                                <rect key="frame" x="16" y="520" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="acT-z7-FGd">
-                                <rect key="frame" x="12" y="549" width="347" height="110"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="acT-z7-FGd">
+                                <rect key="frame" x="12" y="516" width="347" height="143"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Titre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oft-1e-5eH">
+                                <rect key="frame" x="14" y="487" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -147,6 +147,19 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hux-0m-Cpp">
+                                            <rect key="frame" x="149" y="-52" width="374" height="320"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tka-6l-SuO">
+                                            <rect key="frame" x="309" y="61" width="58" height="53"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="empty star"/>
+                                            <connections>
+                                                <action selector="Favorie:" destination="xWO-SS-ZEt" eventType="touchUpInside" id="1vk-Z9-GK0"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="be9-Lc-p4S" secondAttribute="trailing" constant="119" id="366-Yu-9BV"/>
@@ -163,6 +176,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="FavButton" destination="tka-6l-SuO" id="cOX-0p-uvE"/>
                                     <outlet property="imageview" destination="tqg-aq-SsX" id="VLS-Oe-Zcr"/>
                                     <outlet property="titrelabel" destination="VpV-Ef-rLg" id="Dfs-1L-I45"/>
                                     <outlet property="votelabel" destination="R5M-y2-BMU" id="VGN-f8-gtl"/>
@@ -205,5 +219,6 @@
     </scenes>
     <resources>
         <image name="defaut" width="320" height="320"/>
+        <image name="empty star" width="150" height="150"/>
     </resources>
 </document>
