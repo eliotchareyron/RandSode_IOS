@@ -11,9 +11,8 @@ import SDWebImage
 
 class SerieTableViewController: UITableViewController {
     
-    var serie = [Serie]()
+    public var serie = [Serie]()
    
-    
     
      let searchController = UISearchController(searchResultsController: nil)
     
@@ -63,7 +62,11 @@ class SerieTableViewController: UITableViewController {
         cell.yearslabel.text = Serie.years
         cell.votelabel.text = Serie.vote.stringValue
         cell.imageview.sd_setImage(with: URL(string: Serie.image), placeholderImage: UIImage(named: "default.png"))
-        cell.serie_id = Int(Serie.id)
+        cell.serie_id = Serie.id
+        cell.description_serie = Serie.description
+        cell.image_serie = Serie.image
+        cell.poster = Serie.poster
+        
         return cell
     }
  
