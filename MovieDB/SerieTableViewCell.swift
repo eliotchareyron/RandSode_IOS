@@ -73,10 +73,11 @@ class SerieTableViewCell: UITableViewCell {
         let serie_fav = Favoris_serie(id: idserie, titre: titre, years: years, image: image, description: description, vote: vote, poster: poster)
         self.favoris += [serie_fav]
         
-        //UserDefaults.standard.set(self.favoris, forKey: "Favories")
-        
-    }
+       // UserDefaults.standard.set(self.favoris, forKey: "Favories")
+            }
     
-   
+    
+    
+    
     
 }
